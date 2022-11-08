@@ -3,6 +3,7 @@ using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium;
 using Selenuim_Web_Drive_Task.PageObjects;
 using System;
+using Selenuim_Web_Drive_Task.PageObjectModel;
 
 namespace Selenuim_Web_Drive_Task
 {
@@ -20,13 +21,30 @@ namespace Selenuim_Web_Drive_Task
         }
 
         [Test]
-        public void Test_Factory()
+        public void Test_Factory1()
         {
             HomePage_Factory home_page = new HomePage_Factory(webDriver);
             //act
             home_page.Signup();
             //assert
             home_page.IsSignupSuccessful();
+        }
+
+        [Test]
+        public void Test_Factory2()
+        {
+            HomePage_Factory home_page = new HomePage_Factory(webDriver);
+            //act
+            home_page.Title();
+            //assert
+            home_page.IsTitleExists();
+        }
+
+        [Test]
+        public void Test_Factory3()
+        {
+            HomePage_Factory home_page = new HomePage_Factory(webDriver);
+            home_page.Select();
         }
 
         [TearDown]

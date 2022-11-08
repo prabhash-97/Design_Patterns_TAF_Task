@@ -2,7 +2,6 @@
 using OpenQA.Selenium.Support.UI;
 using OpenQA.Selenium;
 using SeleniumExtras.PageObjects;
-using Selenuim_Web_Drive_Task.Decorator;
 using Selenuim_Web_Drive_Task.Singletone;
 using System;
 using System.Collections.Generic;

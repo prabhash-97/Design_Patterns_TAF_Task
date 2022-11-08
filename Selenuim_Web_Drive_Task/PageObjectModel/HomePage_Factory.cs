@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using SeleniumExtras.PageObjects;
 using OpenQA.Selenium.Support.UI;
-using Selenuim_Web_Drive_Task.Decorator;
 using Selenuim_Web_Drive_Task.Singletone;
 
 namespace Selenuim_Web_Drive_Task.PageObjects
@@ -28,6 +27,8 @@ namespace Selenuim_Web_Drive_Task.PageObjects
 
         private IWebElement emailTextBox => driver.FindElement(By.CssSelector("input[id=philadelphia-field-email]"));
         private IWebElement signUpButton => driver.FindElement(By.XPath(".//*[@id='philadelphia-field-submit']"));
+        private IWebElement SAPtitle => driver.FindElement(By.XPath("//*[@id=\"site-name\"]/a"));
+        private IWebElement course => driver.FindElement(By.XPath(".//*[@id='awf_field-91977689']"));
 
         public void GoToPage()
         {
@@ -51,6 +52,23 @@ namespace Selenuim_Web_Drive_Task.PageObjects
 
             Assert.AreEqual(expectedAlertText, alert_win.Text);
             alert_win.Accept();
+        }
+
+        public void IsTitleExists()
+        {
+            Assert.AreEqual(SAPtitle.Enabled, true);
+        }
+
+        public void Title()
+        {
+            Assert.AreEqual("Demo Site", SAPtitle.Text);
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
+        }
+        public void Select()
+        {
+            var selectTest = new SelectElement(course);
+            selectTest.SelectByValue("sap-abap");
+            driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
         }
     }
 }
