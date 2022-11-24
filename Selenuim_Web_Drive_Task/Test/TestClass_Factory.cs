@@ -12,7 +12,7 @@ namespace Selenuim_Web_Drive_Task
         IWebDriver webDriver;
 
         [SetUp]
-        public void startBrowser()
+        public void StartBrowser()
         {
             WebDriverFactory factory = new WebDriverFactory();
             webDriver = factory.CreateInstance("Chrome");
@@ -24,9 +24,7 @@ namespace Selenuim_Web_Drive_Task
         public void Test_Factory1()
         {
             HomePage_Factory home_page = new HomePage_Factory(webDriver);
-            //act
             home_page.Signup();
-            //assert
             home_page.IsSignupSuccessful();
         }
 
@@ -34,9 +32,7 @@ namespace Selenuim_Web_Drive_Task
         public void Test_Factory2()
         {
             HomePage_Factory home_page = new HomePage_Factory(webDriver);
-            //act
             home_page.Title();
-            //assert
             home_page.IsTitleExists();
         }
 
@@ -48,9 +44,9 @@ namespace Selenuim_Web_Drive_Task
         }
 
         [TearDown]
-        public void closeBrowser()
+        public void CloseBrowser()
         {
-            webDriver.Quit(); 
+            webDriver.Close(); 
         }
 
     }

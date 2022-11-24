@@ -16,7 +16,7 @@ namespace Selenuim_Web_Drive_Task.Test
         IWebDriver driver;
 
         [SetUp]
-        public void startBrowser()
+        public void StartBrowser()
         {
             HomePage_Singleton home_page = new HomePage_Singleton();
             home_page.GoToPage();
@@ -26,9 +26,7 @@ namespace Selenuim_Web_Drive_Task.Test
         public void Test_Singleton()
         {
             HomePage_Singleton home_page = new HomePage_Singleton();
-            //act
             home_page.Title();
-            //assert
             home_page.IsTitleExists();
         }
 

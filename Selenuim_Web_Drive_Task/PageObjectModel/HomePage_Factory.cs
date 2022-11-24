@@ -27,7 +27,7 @@ namespace Selenuim_Web_Drive_Task.PageObjects
 
         private IWebElement emailTextBox => driver.FindElement(By.CssSelector("input[id=philadelphia-field-email]"));
         private IWebElement signUpButton => driver.FindElement(By.XPath(".//*[@id='philadelphia-field-submit']"));
-        private IWebElement SAPtitle => driver.FindElement(By.XPath("//*[@id=\"site-name\"]/a"));
+        private IWebElement sapTitle => driver.FindElement(By.XPath("//*[@id=\"site-name\"]/a"));
         private IWebElement course => driver.FindElement(By.XPath(".//*[@id='awf_field-91977689']"));
 
         public void GoToPage()
@@ -56,12 +56,12 @@ namespace Selenuim_Web_Drive_Task.PageObjects
 
         public void IsTitleExists()
         {
-            Assert.AreEqual(SAPtitle.Enabled, true);
+            Assert.AreEqual(sapTitle.Enabled, true);
         }
 
         public void Title()
         {
-            Assert.AreEqual("Demo Site", SAPtitle.Text);
+            Assert.AreEqual("Demo Site", sapTitle.Text);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(20);
         }
         public void Select()
