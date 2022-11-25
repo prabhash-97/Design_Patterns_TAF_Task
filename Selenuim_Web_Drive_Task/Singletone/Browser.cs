@@ -19,11 +19,14 @@ namespace Selenuim_Web_Drive_Task.Singletone
 
         private static Browser instance;
 
+        public static string browser { get; private set; }
+
         public static Browser GetInstance()
         {
             if(instance == null)
             {
-                instance = new Browser(new ChromeDriver("C:\\Users\\UPRABKA\\Documents\\C# traning\\5 - Selenium Web Driver\\chromedriver_win32\\"));
+                WebDriverFactory webDriverFactory = new WebDriverFactory();
+                instance = new Browser(webDriverFactory.CreateInstance("chrome"));
             }
             return instance;
         }
